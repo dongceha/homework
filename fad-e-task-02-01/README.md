@@ -28,7 +28,7 @@
 ### 第二题
 > 尝试使用Gulp 完成项目的自动化构建
 
-> 解：
+> 解：[第二题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/gulpfile.js)
 
 ### 第三题
 > 使用Grunt 完成项目的自动化构建
