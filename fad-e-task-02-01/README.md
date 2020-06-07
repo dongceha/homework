@@ -23,7 +23,7 @@
 ### 第一题
 > 概述脚手架实现的过程，并使用NodeJS 完成一个自定义的小型 脚手架工具
 
-> 解：
+> 解：[第一题代码](https://github.com/dongceha/homework/tree/master/fad-e-task-02-01/code/my-scaffold)
 
 ### 第二题
 > 尝试使用Gulp 完成项目的自动化构建
