@@ -7,7 +7,7 @@ module.exports = {
     // 缩进
     "indent": [
       "error",
-      4 
+      2
     ],
     // 引号
     "quotes": [
