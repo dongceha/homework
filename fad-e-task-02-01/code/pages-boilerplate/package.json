@@ -60,6 +60,8 @@
     "grunt-eslint": "^23.0.0",
     "grunt-html-build": "^0.7.1",
     "grunt-sass": "^3.1.0",
+    "grunt-swig": "^0.2.1",
+    "grunt-swigtemplates": "^0.1.2",
     "grunt-usemin": "^3.1.1",
     "grunt-useref": "^0.0.16",
     "gulp": "^4.0.2",

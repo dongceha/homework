@@ -38,6 +38,12 @@ module.exports = grunt => {
         }]
       }
     },
+    swigtemplates: {
+      production: {
+        dest: 'temp/',
+        src: ['src/*.html']
+      },
+    },
     // https://github.com/pajtai/grunt-useref-example
     // useref: {
     //   html: 'src/*.html',
@@ -74,11 +80,10 @@ module.exports = grunt => {
   loadGruntTasks(grunt)
   grunt.registerTask('default', [
     'clean',
+    'copy',
     'eslint',
     'sass',
     'babel',
-    'useminPrepare',
-    'usemin',
-    'copy',
+    'swigtemplates',
     'watch'])
 }
