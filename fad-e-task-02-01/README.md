@@ -33,7 +33,7 @@
 ### 第三题
 > 使用Grunt 完成项目的自动化构建
 
-> 解：
+> 解：[第三题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/Gruntfile.js)
 
 -----
 > 2-3 题的基础代码 在code/pages-boilerplate 目录中
