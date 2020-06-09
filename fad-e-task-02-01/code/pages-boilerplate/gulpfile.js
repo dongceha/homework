@@ -1,6 +1,7 @@
 // 实现这个项目的构建任务
 
 const { src, dest, parallel, series, watch } = require('gulp')
+const ghPages = require('gulp-gh-pages');
 
 const del = require('del')
 const browserSync = require('browser-sync')
@@ -59,6 +60,10 @@ const extra = () => {
       .pipe(dest('dist'))
 }
 
+const deploy = () => {
+    return src('./dist/**/*')
+      .pipe(ghPages())
+  }
 const serve = () => {
     watch('src/assets/styles/*.scss', style)
     watch('src/assets/scripts/*.js', script)
@@ -137,5 +142,5 @@ module.exports = {
   serve: develop,
   start: develop,
   lint: script,
-  deploy: ''
+  deploy
 }
