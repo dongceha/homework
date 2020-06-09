@@ -45,10 +45,10 @@ module.exports = grunt => {
       },
     },
     // https://github.com/pajtai/grunt-useref-example
-    // useref: {
-    //   html: 'src/*.html',
-    //   temp: 'temp/src'
-    // },
+    useref: {
+      html: 'temp/src/*.html',
+      temp: 'temp/src/'
+    },
     // 检测改变，自动跑sass任务和js任务
     watch: {
       css: {
@@ -69,7 +69,7 @@ module.exports = grunt => {
           {
             expand: true,
             src: ['public/*'],
-            dest: '/temp/',
+            dest: 'temp/',
             filter: 'isFile'
           }
         ]
@@ -85,5 +85,6 @@ module.exports = grunt => {
     'sass',
     'babel',
     'swigtemplates',
+    'useref',
     'watch'])
 }
