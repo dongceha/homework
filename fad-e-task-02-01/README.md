@@ -23,17 +23,17 @@
 ### 第一题
 > 概述脚手架实现的过程，并使用NodeJS 完成一个自定义的小型 脚手架工具
 
-> 解：[第一题代码](https://github.com/dongceha/homework/tree/master/fad-e-task-02-01/code/my-scaffold)
+> 解：[第一题代码](https://github.com/dongceha/homework/tree/master/fad-e-task-02-01/code/my-scaffold) [第一题录屏](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98.mov)
 
 ### 第二题
 > 尝试使用Gulp 完成项目的自动化构建
 
-> 解：[第二题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/gulpfile.js)
+> 解：[第二题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/gulpfile.js) [第二题录屏](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%AC%E4%BA%8C%E9%A2%98.mov)
 
 ### 第三题
 > 使用Grunt 完成项目的自动化构建
 
-> 解：[第三题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/Gruntfile.js)
+> 解：[第三题配置](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/code/pages-boilerplate/Gruntfile.js) [第三题录屏](https://github.com/dongceha/homework/blob/master/fad-e-task-02-01/%E4%BB%A3%E7%A0%81%E9%A2%98%E7%AC%AC%E4%B8%89%E9%A2%98.mov)
 
 -----
 > 2-3 题的基础代码 在code/pages-boilerplate 目录中
