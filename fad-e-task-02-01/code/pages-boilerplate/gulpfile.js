@@ -28,8 +28,8 @@ const style = () => {
 // 处理 js 文件
 const script = () => {
     return src('src/assets/scripts/*.js', { base: 'src' })
-    //   .pipe(eslint())
-    //   .pipe(eslint.format())
+      .pipe(eslint())
+      .pipe(eslint.format())
       .pipe(plugins.babel({ presets: ['@babel/preset-env'] }))
       .pipe(dest('temp'))
       .pipe(bs.reload({ stream: true }))
