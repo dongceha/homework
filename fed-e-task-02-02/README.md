@@ -2,7 +2,9 @@
 ### 第一题
 > Webpack 的构建流程主要有哪些环境？如果可以请尽可能详尽的描述 Webpack 打包的整个过程。
 
-> 1. 先是在 node_modules 里的 .bin 目录中寻找 webpack.cmd
+> 解
+
+  1. 先是在 node_modules 里的 .bin 目录中寻找 webpack.cmd
   2. 开始查找 对应的配置文件，首先找到配置中的 entry
   3. 找到 entry 之后对这个模块的位置进行解析
   4. 使用 loader 对匹配的代码进行编译
@@ -15,6 +17,8 @@
 
 ### 第二题
 > Loader 和 Plugin 有哪些不同？请描述一下开发 Loader 和 Plugin 的思路。
+
+> 解
 
 > 不同
 
