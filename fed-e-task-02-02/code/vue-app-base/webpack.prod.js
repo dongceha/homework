@@ -3,7 +3,6 @@ const common = require('./webpack.common')
 const path = require('path')
 
 const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPluin = require('copy-webpack-plugin')
@@ -16,7 +15,6 @@ module.exports = merge(common, {
         path: path.join(__dirname, 'dist'),
         filename: 'js/[name].[hash].js',
         chunkFilename: 'js/[name].[chunkhash].min.js',
-        library: '[name]_[hash]'
     },
     mode: "production",
     optimization: {
@@ -41,9 +39,9 @@ module.exports = merge(common, {
         }),
         new webpack.DefinePlugin({
             BASE_URL: '',
-            'process.env': 'production'
+            'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        new MiniCssExtractPlugin(), // 将 css 提取出来
+        // 压缩为 gzip
         new CompressionWebpackPlugin({
             filename: '[path].gz[query]',
             algorithm: 'gzip',

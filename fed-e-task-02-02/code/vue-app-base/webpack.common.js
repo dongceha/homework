@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -45,17 +46,21 @@ module.exports = {
             {
                 test: /.css$/,
                 use: [
-                    'vue-style-loader',
+                    process.env.NODE_ENV !== 'production'
+                      ? 'vue-style-loader'
+                      : MiniCssExtractPlugin.loader,
                     'css-loader'
-                ]
+                  ]
             },
             {
                 test: /.less$/,
                 use: [
-                    'vue-style-loader',
+                    process.env.NODE_ENV !== 'production'
+                      ? 'vue-style-loader'
+                      : MiniCssExtractPlugin.loader,
                     'css-loader',
                     'less-loader'
-                ]
+                  ]
             },
             {
                 test: /\.vue$/,
@@ -111,5 +116,8 @@ module.exports = {
             favicon: './public/favicon.ico',
             inject: true
         }),
+        new MiniCssExtractPlugin({
+            filename: 'style.css'
+        }), // 将 css 提取出来
     ]
 }

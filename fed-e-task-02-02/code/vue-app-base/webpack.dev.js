@@ -12,7 +12,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': 'development',
+            'process.env.NODE_ENV': JSON.stringify('development'),
             BASE_URL: '',
         }),
         new webpack.HotModuleReplacementPlugin(),
