@@ -29,7 +29,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'thread-loader',
+                        loader: 'thread-loader',  // 多进程打包
                         options: {
                             workers: 3
                         }

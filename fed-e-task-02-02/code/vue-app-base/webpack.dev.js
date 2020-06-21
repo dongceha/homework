@@ -1,5 +1,4 @@
 const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const common = require('./webpack.common')
 const webpack = require('webpack')
 
@@ -16,6 +15,5 @@ module.exports = merge(common, {
             BASE_URL: '',
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new MiniCssExtractPlugin(), // 将 css 提取出来
     ]
 })

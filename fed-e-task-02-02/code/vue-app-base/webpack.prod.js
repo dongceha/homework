@@ -9,6 +9,7 @@ const CopyWebpackPluin = require('copy-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin-fixed-hashbug');
 
 module.exports = merge(common, {
     output: {
@@ -28,6 +29,7 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
+        // new HardSourceWebpackPlugin(),
         new CleanWebpackPlugin(),
         new CopyWebpackPluin({
             patterns: [
