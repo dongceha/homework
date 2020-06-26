@@ -34,7 +34,7 @@ this.$set(this.dog,'name','Trump')
 5. 当 ***老节点的排头和新节点的排尾 是相同节点*** 的时候，进入 patchVnode 深度比较，然后对 节点在 dom 上的位置进行移动，接着老节点的排头往后移动，新节点的排尾往前移动、
 6. 当 ***老节点的排尾和新节点的排头是相同节点*** 的时候，进入 patchVnode 深入比较，然后对 对应的节点在 dom 上的位置进行移动，然后 老节点的排尾向前移动，新节点的排头向后移动
 7. 当 前面的 3、4、5、6 都不符合之后，将 ***老节点的 key 和对应的index 作为一个 map 对象保存起来***
-8. 然后将新节点剩下的节点 对应的 ***key 寻找老节点对应相同的 key ***
+8. 然后将新节点剩下的节点 对应的 ***key 寻找老节点对应相同的 key***
 9. 如果存在相同的节点，将对应的节点 进入 patchVnode，然后将老节点 key 对应的value 职位 undefined，也就是删除，接着将老节点插入
 10. 如果最后遍历结束，***新节点还有剩余，那创建新节点，如果老节点还有剩余，那删除老节点***
 
@@ -43,9 +43,71 @@ this.$set(this.dog,'name','Trump')
 ### 第一题
 > 模拟 VueRouter 的 hash 模式的实现，实现思路和 History 模式类似，把 URL 中的 # 后面的内容作为路由的地址，可以通过 hashchange 事件监听路由地址的变化。
 
-### 第一题
-> 使用函数组合 fp.flowRight() 重新实现下面这个函数
-
+```js
+// 修改点：当 初始化的时候，location没有 hash 的时候，给路径加上 #/
+...
+beforeCreate() {
+    if (this.$options.router) {
+        _Vue.prototype.$router =  this.$options.router
+        this.$options.router.init()
+++      if (!window.location.hash && this.$options.router.mode === 'hash') {
+++          history.replaceState({}, '', '#/')
+++      }
+    }
+}
+...
+// 初始化的时候，增加对 mode 的获取
+constructor(options) {
+    this.options = options
+++  this.mode = options.mode || 'hash'
+    // 路由地址：组件
+    this.routeMap = {}
+    // 响应式的 
+    this.data = _Vue.observable({
+        current: '/home1'
+    })
+}
+// 修改 router-link 跳转的路由
+initComponents(Vue) {
+++  let mode = this.mode === 'hash' ? '/#' : ''
+    Vue.component('router-link', {
+        props: {
+            to: String
+        },
+        render(h) {
+            return h('a', {
+                attrs: {
+                    href: this.to,
+                },
+                on: {
+                    click: this.clickHandler
+                }
+            }, [this.$slots.default])
+        },
+        methods: {
+            clickHandler(e) {
+                e.preventDefault()
+++              history.pushState({}, '', mode + this.to)
+                this.$router.data.current = this.to;
+            } 
+        }
+    })
+}
+// 增加对 hashchange 事件的监听
+initEvent() {
+    // 监听路由变化的时候，把当前的路由赋值给 当前的值
+    // 比如点击 浏览器的前进和后退
+    if (this.mode === 'hash') {
+        window.addEventListener('hashchange', () => {
+            this.data.current = window.location.hash.substr(1)
+        })
+    } else {
+        window.addEventListener('popstate', () => {
+            this.data.current = window.location.pathname
+        })
+    }
+}
+```
 
 ### 第二题
 > 在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
