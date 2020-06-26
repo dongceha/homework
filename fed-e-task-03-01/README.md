@@ -42,7 +42,7 @@ this.$set(this.dog,'name','Trump')
 ## 代码题
 ### 第一题
 > 模拟 VueRouter 的 hash 模式的实现，实现思路和 History 模式类似，把 URL 中的 # 后面的内容作为路由的地址，可以通过 hashchange 事件监听路由地址的变化。
-
+> [vue-router地址](https://github.com/dongceha/homework/blob/master/fed-e-task-03-01/code/vue-router/index.js)
 ```js
 // 修改点：当 初始化的时候，location没有 hash 的时候，给路径加上 #/
 ...
@@ -92,16 +92,18 @@ initComponents(Vue) {
             } 
         }
     })
+    ...
 }
+...
 // 增加对 hashchange 事件的监听
 initEvent() {
     // 监听路由变化的时候，把当前的路由赋值给 当前的值
     // 比如点击 浏览器的前进和后退
-    if (this.mode === 'hash') {
-        window.addEventListener('hashchange', () => {
-            this.data.current = window.location.hash.substr(1)
-        })
-    } else {
+++  if (this.mode === 'hash') {
+++      window.addEventListener('hashchange', () => {
+++         this.data.current = window.location.hash.substr(1)
+++      })
+++  } else {
         window.addEventListener('popstate', () => {
             this.data.current = window.location.pathname
         })
