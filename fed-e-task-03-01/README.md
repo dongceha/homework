@@ -114,6 +114,58 @@ initEvent() {
 ### 第二题
 > 在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
 
+> 加入 v-html 指令 [index.js](https://github.com/dongceha/homework/blob/master/fed-e-task-03-01/code/vue-observe/js/index.js) [compiler.js](https://github.com/dongceha/homework/blob/master/fed-e-task-03-01/code/vue-observe/js/compiler.js)
+```js
+// compiler.js
+...
+// 处理 v-html
+++  htmlUpdater(node, value, key) {
+++      node.innerHTML = value
+++      new Watcher(this.vm, key, (newValue) => {
+++          node.innerHTML = newValue
+++      })
+++  }
+...
+```
+> 加入 v-on 指令
+```js
+// index.js
+    constructor(options) {
+        ...
+        this._proxyData(this.$data)
+++      this._proxyMethods(options.methods)
+        // 3、通过调用 observer 对象，监听数据的变化
+        new Observer(this.$data)
+        // 4、通过compiler对象，解析指令和插值表达式
+        new Compiler(this)
+    }
+++  _proxyMethods(methods) {
+++      const _this = this
+++     Object.keys(methods).forEach(key => {
+++         Object.defineProperty(this, key, {
+++              enumerable: true,
+++              configurable: true,
+++              get() {
+++                  return methods[key].bind(_this)
+++              }
+++          })
+++      })
+++  }
+
+// compiler.js
+update(node, key, attrName) {
+    let updateFn = this[`${attrName}Updater`]
+    updateFn && updateFn.call(this, node, this.vm[key], key)
+++  if (attrName.startsWith('on:')) {
+++      this.eventHandler(node, key, attrName)
+++  }
+}
+++  eventHandler(node, key, attrName) {
+++      const event = attrName.substr(3)
+++      node.addEventListener(event, this.vm[key])
+++  }
+```
+
 
 ### 第三题
 > 参考 Snabbdom 提供的电影列表的示例，实现类似的效果，如图：
