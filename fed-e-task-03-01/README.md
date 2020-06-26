@@ -39,5 +39,5 @@ let vm = new Vue({
 ### 第三题
 > 参考 Snabbdom 提供的电影列表的示例，实现类似的效果，如图：
 
-![image](https://github.com/dongceha/homework/tree/master/fed-e-task-03-01/homework2-3.png)
+![image](https://github.com/dongceha/homework/blob/master/fed-e-task-03-01/homework2-3.png)
 
