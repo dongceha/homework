@@ -15,6 +15,7 @@ module.exports = merge(common, {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'js/[name].[hash].js',
+        publicPath: './',
         chunkFilename: 'js/[name].[chunkhash].min.js',
     },
     mode: "production",
@@ -40,8 +41,10 @@ module.exports = merge(common, {
             ]
         }),
         new webpack.DefinePlugin({
-            BASE_URL: '',
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env': {
+                NODE_ENV: '"production"',
+            },
+            BASE_URL: "''"
         }),
         // 压缩为 gzip
         new CompressionWebpackPlugin({
