@@ -3,6 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+// import { Configuration } from 'webpack'
+// /**
+//  * @type {Configuration}
+//  * */ 
+/**
+ * 这里是 jsDoc 的写法
+ * @type {import('webpack').Configuration}
+ * */ 
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -114,7 +122,8 @@ module.exports = {
             filename: 'index.html',
             template: './public/index.html',
             favicon: './public/favicon.ico',
-            inject: true
+            inject: true,
+            title: 'Vue app template'
         }),
         new MiniCssExtractPlugin({
             filename: 'style.css'

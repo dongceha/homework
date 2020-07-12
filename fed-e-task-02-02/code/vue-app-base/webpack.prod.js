@@ -19,6 +19,7 @@ module.exports = merge(common, {
         chunkFilename: 'js/[name].[chunkhash].min.js',
     },
     mode: "production",
+    devtool: 'hidden-source-map',  // 只暴露 行列信息，但是点不进去
     optimization: {
         minimize: true,
         minimizer: [ // 配置了数组之后，自定义压缩器插件

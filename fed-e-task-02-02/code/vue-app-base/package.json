@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js",
-    "build": "cross-env NODE_ENV=production yarn webpack --config webpack.prod.js --mode production",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js --mode production",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
