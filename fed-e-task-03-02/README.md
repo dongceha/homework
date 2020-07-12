@@ -1,7 +1,7 @@
 ### 第一题
 > 请简述 Vue 首次渲染的过程。
 
-> 1. 首先 执行 vue 实例的 _init 函数
+  1. 首先 执行 vue 实例的 _init 函数
   2. _init 函数给当前实例 注入 父子关系、响应事件、h 函数、执行 钩子函数、设置数据的响应式、注入provide
   3. 挂载 整个页面，如果传入 render 函数的话，获取 render 函数，如果没有的话，就 将 template 或者 el 的outerHTML 编译成 render 函数，同时 **生成 当前组件的 渲染 Watcher ，将 render 函数作为回调函数 传入**
   4. 渲染 Watcher 被创建的时候，就会开始执行 对应的 get ，也就是 render 函数
@@ -13,7 +13,7 @@
 ### 第二题
 > 请简述 Vue 响应式原理。
 
-> 1. 使用了 defineProperty 的 get set 参数来对数据进行响应式的绑定
+  1. 使用了 defineProperty 的 get set 参数来对数据进行响应式的绑定
   2. 当前 **数据为 数组的时候** ，就修改 数组的 __proto__ 的指向，指向自定义的 函数集，其主要还是在执行完毕之后，执行了 ob.dep.notify() 函数，通知渲染watcher 进行改变
   3. 当前 **数据为 对象时** ，遍历对象的每一个值，进行 响应式处理
   4. 当前 **数据为 computed 时** ，设置当前的 lazy 和 dirty 为 true，只有当依赖的数据改变了之后，才会改变 dirty 为 true，这样在执行 当前 computed 的 getter 的时候会 调用 当前依赖的 watcher evaluate，获取当前 computed 的值的同时，将 dirty 置为 false，让下次 获取从缓存中拿
@@ -23,7 +23,6 @@
   8. 这个时候就会 **进行响应式依赖的收集**
   9. 这样在以后的 set 之后，就会执行 对应的渲染 watcher 了，执行 更新操作
 
-> 1. 调用
 
 ### 第三题
 > 请简述虚拟 DOM 中 Key 的作用和好处。
@@ -34,7 +33,7 @@
 ### 第四题
 > 请简述 Vue 中模板编译的过程。
 
-> 1. 缓存 公共的 mount 函数，并重写 浏览器平台的 mount
+  1. 缓存 公共的 mount 函数，并重写 浏览器平台的 mount
   2. 判断 是否传入了 render 函数，没有的话，是否传入了 template ，没有的话，则获取 el 节点的 outerHTML 作为 template
   3. 调用 baseCompile 函数
   4. 将 **模板编译成 AST 抽象语法树**
