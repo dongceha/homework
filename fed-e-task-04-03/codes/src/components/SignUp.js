@@ -15,11 +15,12 @@ import {
     Flex,
     Button,
     FormControl,
-    Link
+    Link,
+    Box,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
-import { FaUserAlt, FaLock, FaCheck } from 'react-icons/fa';
+import { FaUserAlt, FaLock, FaCheck, FaQq, FaWeibo, FaWeixin } from 'react-icons/fa';
 
 export default function() {
     const formik = useFormik({
@@ -88,12 +89,23 @@ export default function() {
                 <Text
                   fontSize="14px"
                   px="40px"
+                  mb="50px"
                   textAlign="center">
                   点击 “注册” 即表示您同意并愿意遵守简书
                   <Link color="blue.200">用户协议</Link>
                   和
                   <Link color="blue.200">隐私政策</Link> 。
                 </Text>
+                <Flex alignItems="center" justifyContent="space-around">
+                    <Box w="25%" h="1px" bg="gray.200"></Box>
+                    <Text fontSize="12px">社交账号登陆</Text>
+                    <Box w="25%" h="1px" bg="gray.200"></Box>
+                </Flex>
+                <Stack direction="row" justifyContent="center">
+                    <FaWeibo color="red" />
+                    <FaWeixin color="green" />
+                    <FaQq color="blue" />
+                </Stack>
             </Stack>
         </form>
     )

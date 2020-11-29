@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
     Input,
     InputGroup,
@@ -13,11 +14,11 @@ import {
     FormLabel,
     Flex,
     Button,
-    FormControl
+    FormControl,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
-import { FaUserAlt, FaLock, FaCheck } from 'react-icons/fa';
+import { FaUserAlt, FaLock, FaCheck, FaWeibo, FaWeixin, FaQq } from 'react-icons/fa';
 
 export default function() {
     const formik = useFormik({
@@ -76,7 +77,18 @@ export default function() {
                   _hover={{bgColor: 'blue.200'}}
                   w="100%"
                   borderRadius="50px"
+                  mb="50px"
                   colorScheme="blue">登陆</Button>
+                <Flex mt="100px" alignItems="center" justifyContent="space-around">
+                    <Box w="20%" h="1px" bg="gray.200"></Box>
+                    <Text fontSize="12px">社交账号登陆</Text>
+                    <Box w="20%" h="1px" bg="gray.200"></Box>
+                </Flex>
+                <Stack direction="row" justifyContent="center">
+                    <FaWeibo color="red" />
+                    <FaWeixin color="green" />
+                    <FaQq color="blue" />
+                </Stack>
             </Stack>
         </form>
     )
