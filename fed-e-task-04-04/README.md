@@ -1,7 +1,11 @@
 ## 编程题
 ### 第一题
-> 参考[网址](https://www.jianshu.com/sign_in) 
+> 本次作业要求使用 nextjs 或  Gatsby 完成下面图片的功能
 
-> 1. 使用本模块内容，将简书登录框封装成一个登录，注册组件
+> 要求
+ 1. 点击 添加快捷方式 出现弹框组件
+ 2. 在后面紧跟着生成对应的链接
+ 3. ~~链接中图片添加的处理 加分项~~
+ 4. 可以参考 chrome 网页
 
-> [作业代码地址](https://github.com/dongceha/homework/tree/master/fed-e-task-04-03/codes) 
+> [作业代码地址](https://github.com/dongceha/homework/tree/master/fed-e-task-04-04/codes) 
