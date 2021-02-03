@@ -1,0 +1,22 @@
+# 请完成下面几道简答题。
+
+1. 通过该项目，请简要说明 typescript 比 javascript 的优势在哪？
+> 1. 可以规范传参，定义函数、组件调用到底需要哪些参数 
+> 2. 方便在调用类或者对象的时候，可以直接通过 . 的方式获得需要调用的函数
+> 3. 规范协同的时候，写代码的规范
+> 4. 规范前后端传参、返回值，方便直接使用对应的返回数据
+
+2. 请简述一下支付流程
+
+3. react-redux 的主要作用是什么，常用的 api 有哪些，什么作用？
+> 1. 在全局存储一个需要的状态，并在状态更新的时候通知到对应的组件
+> 2. 对应的 api
+>  - useDispatch 用于生成当前的 dispatch
+>  - useSelector 用于获得当前的 redux 内的数据
+>  - Provider 向子组件传递 store 数据
+
+4. redux 中的异步如何处理？
+> 1. 使用 redux-thunk 在传入的异步函数中调用 next
+> 2. 使用 redux-saga takeEvery 劫持对应的 action，并对异步处理之后 put 需要调用的 action
+
+> [项目代码地址](https://github.com/dongceha/ecommerce)  
