@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <div>
+    <pre>
+      {{todos | async | json}}
+    </pre>
+  </div>
+  <input #AddTodoInput type="text" class="form-control" placeholder="请在此处添加任务" />
+  <button (click)="deleteTodos()" type="button" class="btn btn-danger btn-sm">删除</button>
+  <ul class="list-group">
+    <li
+      *ngFor="let todo of todos | async"
+      class="list-group-item d-flex aligin-items-center justify-content">
+      <input type="checkbox" name="todos" (change)="changeInput(todo.id)">
+      {{todo.title}}
+      <button (click)="deleteTodo(todo.id)" type="button" class="btn btn-danger btn-sm">删除</button>
+    </li>
+  </ul>
+</div>  
