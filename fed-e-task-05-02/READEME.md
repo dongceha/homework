@@ -1,9 +1,9 @@
-* Redis 课程作业
+## Redis 课程作业
 > 众所周知，微信有几亿的用户群，某一时刻可能有几千人同时在玩漂流瓶，对于这种高并发数据量小的服务，使用 Node.js 和 Redis 绝对是一个不二的选择。
 
 > 第一步，当然是需要设计好与服务器交互的接口，我们采用 JSON 形式的 API 接口，因为 Node.js 中对 HTTP 一流的支持，以及对 JSON 的友好让我们创建 JSON API 变得格外简单。
 
-***打捞一个漂流瓶
+### 打捞一个漂流瓶
 > 我们设定：以 GET 加参数的形式访问服务器打捞一个漂流瓶，返回 JSON 数据：
 ```js
 GET /?user=xxx[&type=xxx]// 成功返回{    "code": 1,  "msg": {    "time": "xxx",    "owner": "xxx",    "type": "xxx",    "content": "xxx"  }}// 失败返回{    "code": 0,  "msg": "xxx"}
@@ -24,7 +24,7 @@ GET请求的参数如下。
 > 6. content：漂流瓶内容。
 
 
-***扔出一个漂流瓶
+### 扔出一个漂流瓶
 > 以 POST 形式请求服务器扔出一个漂流瓶，返回 JSON 数据：
 ```js
 POST owner=xxx&type=xxx&content=xxx[&time=xxx]// 成功{    "code": 1,  "msg": "xxx"}// 失败{    "code": "xxx",  "msg": "xxx"}
@@ -41,3 +41,5 @@ POST owner=xxx&type=xxx&content=xxx[&time=xxx]// 成功{    "code": 1,  "msg": "
 > 2. msg：返回正确或错误时的信息。
 
 > 至此，API 已经设计好了，接下来我们根据设计的 API 来编写代码。
+
+[项目代码地址](https://github.com/dongceha/homework/blob/master/fed-e-task-05-02/code/index.js)  
